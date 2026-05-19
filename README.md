@@ -2,7 +2,7 @@
 
 End-to-end **quantile forecasting** pipeline with deep feature engineering, **drift detection**, **automated retraining triggers**, and **WAPE/bias backtesting** — designed for retail SKU-store granularity.
 
-> Mirrors the production system at Limendo: 900+ SKUs × 51 stores, ~15% accuracy improvement, drift-triggered retraining via AWS EventBridge.
+> Mirrors a production system from a prior role: 900+ SKUs × 51 stores, ~15% accuracy improvement, drift-triggered retraining via AWS EventBridge.
 
 ---
 
