@@ -29,9 +29,10 @@ def add_lag_rolling(df: pd.DataFrame) -> pd.DataFrame:
     g = df.groupby(["sku_id", "store_id"])["qty"]
     for lag in LAGS:
         df[f"lag_{lag}"] = g.shift(lag)
+    # transform keeps rolling within each (sku, store) group — no cross-group leakage
     for w in ROLLINGS:
-        df[f"rmean_{w}"] = g.shift(1).rolling(w).mean().reset_index(level=[0, 1], drop=True)
-        df[f"rstd_{w}"] = g.shift(1).rolling(w).std().reset_index(level=[0, 1], drop=True)
+        df[f"rmean_{w}"] = g.transform(lambda s, w=w: s.shift(1).rolling(w).mean())
+        df[f"rstd_{w}"] = g.transform(lambda s, w=w: s.shift(1).rolling(w).std())
     return df
 
 
