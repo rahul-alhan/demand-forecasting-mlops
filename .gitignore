@@ -7,3 +7,5 @@ reports/
 mlruns/
 models/artifacts/
 *.egg-info/
+.pytest_cache/
+.pytest_tmp/

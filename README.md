@@ -53,6 +53,15 @@ python -m mlops.drift_detection \
 
 ---
 
+## Running Tests
+
+```bash
+pip install -r requirements-dev.txt
+python -m pytest -q
+```
+
+---
+
 ## Feature Engineering
 
 | Family | Features |
